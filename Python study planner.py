@@ -1,4 +1,6 @@
 import json
+
+
 try:
     with open("subjects.json", "r") as file:
         study_planner = json.load(file)
@@ -10,7 +12,8 @@ is_running = True
 while is_running:
     print("\n1. Add Subject")
     print("2. View plan")
-    print("3. Exit")
+    print("3. Delete subjects")
+    print("4. Exit")
 
     choice = input("Choose an option: ")
 
@@ -25,8 +28,17 @@ while is_running:
         for subject, time in study_planner.items():
             print(f"{subject}:{time}hours")
 
-
     elif choice == "3":
+        removed_sub = input("Choose a subject to remove: ")
+        if removed_sub in study_planner:
+            del study_planner[removed_sub]
+            print("Subject has been removed")
+        else:
+            print("Subject is not on list")
+
+
+
+    elif choice == "4":
         import json
 
         file_path = "subjects.json"
