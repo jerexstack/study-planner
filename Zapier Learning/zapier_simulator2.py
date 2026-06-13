@@ -12,6 +12,8 @@ start_clock = time.time()
 
 for payload in incoming_payloads:
     print(f"\n[Processing Item ID: {payload['id']}]")
+    time.sleep(1)
+    print(f"\n [Webhook Received] Processing Item ID: {payload['id']}")
 
     try:
         raw_ref = payload["reference"]
